@@ -2,7 +2,7 @@
 import express from 'express'
 import next from 'next'
 import logger from 'morgan'
-import router from './server/router/router'
+import router from './router/router'
 import bodyParser from 'body-parser'
 import cookieParser from "cookie-parser"
 const port = parseInt(process.env.PORT, 10) || 8080

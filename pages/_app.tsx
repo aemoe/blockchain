@@ -10,7 +10,7 @@ import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import { arbitrum, mainnet, polygon } from "wagmi/chains";
 
 const chains = [arbitrum, mainnet, polygon];
-const projectId = "YOUR_PROJECT_ID";
+const projectId = "d701f531d32edddfc42c855783261d94";
 
 const { publicClient } = configureChains(chains, [w3mProvider({ projectId })]);
 const wagmiConfig = createConfig({
@@ -21,10 +21,12 @@ const wagmiConfig = createConfig({
 const ethereumClient = new EthereumClient(wagmiConfig, chains);
 
 export default function App({ Component, pageProps }: AppProps) {
-  return (<>
+  return (
+    <>
       <WagmiConfig config={wagmiConfig}>
-        <Component {...pageProps} />
+      <Component {...pageProps} />
       </WagmiConfig>
       <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
-    </>)
+    </>
+  );
 }
